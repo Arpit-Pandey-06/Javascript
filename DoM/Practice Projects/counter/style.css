@@ -1,39 +1,131 @@
-*{
+/* Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* Using a clean system font so you don't need external links */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
-h1{
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* A soft, modern gradient background */
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    color: #333;
+}
+
+/* Page Title */
+h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* The Main Card Container */
+#container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin: 15px;
-    padding: 10px;
+    width: 90%;
+    max-width: 450px;
+    /* Smooth floating animation on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-#container{
-    margin: 18px;
-    padding: 18px;
-    border: 1px solid rgb(162, 144, 147);
-    background-color: rgb(162, 144, 147);
+
+#container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* The Number Display */
+#value {
+    font-size: 6rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin: 10px 0 40px 0;
+    /* Adding min-height so the card doesn't collapse before your JS loads the number */
+    min-height: 115px; 
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
 }
-#value{
-    margin:20px;
-    padding: 10px;
-    font-size: 48px;
-    color: brown;
+
+/* Button Container */
+.elements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
-.elements{
+
+/* Base Button Styles */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+/* Primary Action Buttons (+ and -) */
+#add, #min {
+    width: 65px;
+    height: 65px;
+    font-size: 2.5rem;
+    color: white;
     display: flex;
     align-items: center;
-    margin: 15px;
-    padding: 15px;    
+    justify-content: center;
 }
-button{
- margin: 10px;
- padding: 8px; 
- border: none ;
- border-radius: 30%;  
+
+#add {
+    background-color: #27ae60;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+#add:hover { background-color: #2ecc71; transform: scale(1.05); }
+#add:active { transform: scale(0.95); }
+
+#min {
+    background-color: #e74c3c;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+#min:hover { background-color: #e55d4f; transform: scale(1.05); }
+#min:active { transform: scale(0.95); }
+
+/* Secondary Action Buttons */
+#reset, #save, #load {
+    padding: 12px 20px;
+    background-color: transparent;
+    color: #34495e;
+    border: 2px solid #bdc3c7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    /* Make them take up a bit less space than the big + and - */
+    flex-grow: 1; 
+    max-width: 100px;
+}
+
+#reset:hover, #save:hover, #load:hover {
+    background-color: #ecf0f1;
+    border-color: #95a5a6;
+}
+
+#reset:active, #save:active, #load:active {
+    transform: scale(0.95);
+}
+
+/* Footer styling */
+footer {
+    margin-top: 30px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
 }
